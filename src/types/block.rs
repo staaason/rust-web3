@@ -135,6 +135,17 @@ pub struct Block<TX> {
     pub mix_hash: Option<H256>,
     /// Nonce
     pub nonce: Option<H64>,
+    #[serde(rename = "withdrawalsRoot", skip_serializing_if = "Option::is_none")]
+    pub withdrawals_root: Option<H256>,
+
+    #[serde(rename = "blobGasUsed", skip_serializing_if = "Option::is_none")]
+    pub blob_gas_used: Option<U256>,
+
+    #[serde(rename = "excessBlobGas", skip_serializing_if = "Option::is_none")]
+    pub excess_blob_gas: Option<U256>,
+
+    #[serde(rename = "ParentBeaconRoot", skip_serializing_if = "Option::is_none")]
+    pub parent_beacon_root: Option<H256>,
 }
 
 fn null_to_default<'de, D, T>(deserializer: D) -> Result<T, D::Error>
