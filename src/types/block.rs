@@ -37,6 +37,20 @@ pub struct BlockHeader {
     /// Base fee per unit of gas (if past London)
     #[serde(rename = "baseFeePerGas", skip_serializing_if = "Option::is_none")]
     pub base_fee_per_gas: Option<U256>,
+
+    #[serde(rename = "withdrawalsRoot", skip_serializing_if = "Option::is_none")]
+    pub withdrawals_root: Option<H256>,
+
+    #[serde(rename = "blobGasUsed", skip_serializing_if = "Option::is_none")]
+    pub blob_gas_used: Option<U256>,
+
+    #[serde(rename = "excessBlobGas", skip_serializing_if = "Option::is_none")]
+    pub excess_blob_gas: Option<U256>,
+
+    #[serde(rename = "ParentBeaconRoot", skip_serializing_if = "Option::is_none")]
+    pub parent_beacon_root: Option<H256>,
+
+
     /// Extra data
     #[serde(rename = "extraData")]
     pub extra_data: Bytes,
